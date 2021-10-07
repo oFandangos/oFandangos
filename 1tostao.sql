@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Set-2021 às 03:23
+-- Tempo de geração: 07-Out-2021 às 02:51
 -- Versão do servidor: 8.0.20
 -- versão do PHP: 7.4.5
 
@@ -147,7 +147,22 @@ INSERT INTO `classificacao` (`id_classificacao`, `nota`, `servico_id`) VALUES
 (187, 5, 194),
 (188, 5, 194),
 (189, 5, 194),
-(190, 5, 190);
+(190, 5, 190),
+(191, 5, 191),
+(192, 5, 195),
+(193, 1, 195),
+(194, 5, 204),
+(195, 1, 204),
+(196, 5, 204),
+(197, 5, 204),
+(198, 5, 204),
+(199, 5, 204),
+(200, 5, 204),
+(201, 5, 205),
+(202, 5, 205),
+(203, 5, 205),
+(204, 5, 205),
+(205, 5, 204);
 
 -- --------------------------------------------------------
 
@@ -159,35 +174,26 @@ CREATE TABLE `comentarios` (
   `id_coment` int NOT NULL,
   `servico` int NOT NULL,
   `user` int NOT NULL,
-  `comentario` varchar(500) NOT NULL
+  `comentario` varchar(500) NOT NULL,
+  `data_comment` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_coment`, `servico`, `user`, `comentario`) VALUES
-(5, 194, 2, 'teste'),
-(6, 194, 2, 'testete'),
-(7, 194, 2, 'testetete'),
-(9, 195, 2, 'teste'),
-(13, 195, 2, 'ok'),
-(14, 195, 2, 'cadastrando!'),
-(15, 195, 11, 'testado mais uma vez'),
-(16, 195, 11, 'Serviço muito foda! kek'),
-(17, 191, 11, 'ta doido, tio'),
-(18, 194, 13, 'sdhajajsdhaj shd yasd ayd yasgydj aysj dag djaysd gjad gaysjd adjayg jaygd avbands vanbdv adh  hsdflo sghoif sygdf osuydgf ousadyfgsdfusndhfg sdo gsd yusgd fsodufy sdgf shdjf osdy gfsduof ygsadouf asdfhjsdfh bsajd ksagd faysfgaspdfysdpfysg djf hbwfou q fd0fgdsofh sqf hsgdf ysgdfy sjdfshdfj sgdf'),
-(19, 194, 13, 'mais uma vez'),
-(20, 190, 13, 'minecraft comunista fodasekkkkkkkkkkkkkkk bão demais'),
-(21, 194, 11, 'Serviço excelente, no precinho e bom custo beneficio.'),
-(22, 194, 13, 'oxente'),
-(23, 195, 4, 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real. A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.'),
-(24, 194, 14, 'Meus serviços sao excletnes mlk'),
-(25, 177, 14, 'maneiro'),
-(27, 179, 14, 'teste'),
-(28, 179, 14, 'asd'),
-(29, 190, 14, 'ok'),
-(30, 192, 11, 'mais uma vez');
+INSERT INTO `comentarios` (`id_coment`, `servico`, `user`, `comentario`, `data_comment`) VALUES
+(47, 181, 14, 'testetee', '2021-10-01'),
+(48, 195, 14, 'teste', '2021-10-01'),
+(49, 182, 14, 'delete from comentaiors;\r\n', '2021-10-01'),
+(50, 204, 14, 'tste\r\n', '2021-10-01'),
+(51, 195, 14, 'daora\r\n', '2021-10-01'),
+(52, 204, 13, 'quem sou eu?', '2021-10-01'),
+(53, 204, 13, 'teste', '2021-10-01'),
+(54, 195, 11, 'testing date and nick', '2021-10-02'),
+(55, 204, 30, 'Fun fact: Lee used the first ever guitar that he recorderd with with Bring Me The Horizon to record the guitar solo because it reminded him of Count Your Blessings', '2021-10-02'),
+(56, 205, 2, 'kek', '2021-10-04'),
+(57, 205, 32, 'o anão ataca novamente', '2021-10-06');
 
 -- --------------------------------------------------------
 
@@ -200,6 +206,64 @@ CREATE TABLE `encontro` (
   `cliente` int NOT NULL,
   `servico` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `notificacao`
+--
+
+CREATE TABLE `notificacao` (
+  `id_notf` int NOT NULL,
+  `servico_notf` int NOT NULL,
+  `user_notf` int NOT NULL,
+  `servico_id_notf` int NOT NULL,
+  `mensagem` varchar(255) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `data_notf` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `notificacao`
+--
+
+INSERT INTO `notificacao` (`id_notf`, `servico_notf`, `user_notf`, `servico_id_notf`, `mensagem`, `status`, `data_notf`) VALUES
+(1, 2, 14, 195, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 19:44:56'),
+(2, 2, 14, 195, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 19:44:57'),
+(3, 2, 14, 195, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 19:44:58'),
+(4, 2, 14, 195, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 19:44:59'),
+(5, 2, 14, 195, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 19:45:00'),
+(6, 11, 14, 191, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 20:12:41'),
+(7, 14, 2, 204, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 20:29:11'),
+(8, 14, 2, 204, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 20:29:14'),
+(18, 11, 13, 191, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 21:46:43'),
+(19, 13, 2, 192, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 21:49:09'),
+(20, 13, 2, 192, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 21:49:11'),
+(21, 13, 2, 192, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 21:49:12'),
+(22, 13, 2, 192, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 21:49:13'),
+(23, 13, 2, 192, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-01 21:49:46'),
+(24, 14, 11, 204, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-02 15:50:45'),
+(25, 30, 2, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-02 18:17:45'),
+(26, 30, 14, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-02 18:18:08'),
+(27, 13, 30, 192, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-02 18:20:31'),
+(28, 13, 30, 192, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-02 18:20:46'),
+(29, 30, 2, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-04 17:18:47'),
+(30, 2, 2, 195, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 16:50:17'),
+(31, 2, 14, 195, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 17:15:14'),
+(32, 30, 13, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 17:16:49'),
+(33, 30, 11, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 17:16:59'),
+(34, 30, 2, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 17:21:41'),
+(35, 30, 30, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 17:45:18'),
+(36, 30, 30, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 17:49:46'),
+(37, 5, 30, 177, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 22:37:05'),
+(38, 5, 30, 177, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 22:37:07'),
+(39, 5, 30, 177, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 22:37:09'),
+(40, 5, 30, 177, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 22:37:10'),
+(41, 5, 30, 177, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-05 22:37:10'),
+(42, 30, 2, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-06 18:18:50'),
+(43, 30, 2, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-06 18:18:52'),
+(44, 30, 2, 205, 'Pediu para abaixar o preço do serviço', 'read', '2021-10-06 18:18:53'),
+(45, 14, 30, 204, 'Pediu para abaixar o preço do serviço', 'unread', '2021-10-06 20:47:07');
 
 -- --------------------------------------------------------
 
@@ -219,19 +283,12 @@ CREATE TABLE `preco` (
 --
 
 INSERT INTO `preco` (`id_preco`, `servico`, `user`, `mensagem`) VALUES
-(2, 194, NULL, 'pediu para abaixar o preço'),
-(3, 194, NULL, 'pediu para abaixar o preço'),
-(4, 192, NULL, 'pediu para abaixar o preço'),
-(5, 174, NULL, 'pediu para abaixar o preço'),
-(6, 194, NULL, 'pediu para abaixar o preço'),
-(7, 180, NULL, 'pediu para abaixar o preço'),
-(8, 195, NULL, 'pediu para abaixar o preço'),
-(9, 194, NULL, 'pediu para abaixar o preço'),
-(11, 195, NULL, 'pediu para abaixar o preço'),
-(12, 195, NULL, 'pediu para abaixar o preço'),
-(13, 194, NULL, 'pediu para abaixar o preço'),
-(14, 195, NULL, 'pediu para abaixar o preço'),
-(15, 195, NULL, 'pediu para abaixar o preço');
+(60, 195, 2, 'asd'),
+(61, 195, 2, 'aseuahseuah'),
+(62, 193, 2, 'abaixa essa porra ai tio'),
+(63, 194, 2, 'baixa'),
+(64, 204, 11, 'testando pechincha'),
+(65, 195, 2, '');
 
 -- --------------------------------------------------------
 
@@ -271,7 +328,9 @@ INSERT INTO `servicos` (`id_servico`, `titulo`, `autor`, `desc_servico`, `img_se
 (192, 'Testando datetime ', 13, 'testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime testando datetime ', '281c4b3978e63d4290267473a11a2ddc.jpg', 5, 357, NULL),
 (193, 'tessttst', 11, 'sdaddsasda', '5698bdddfc6ce14376b762ab8c2695f2.png', 4, 1231, NULL),
 (194, 'teste numero 100 com php', 14, 'KASLKKASDJ KAJSKKSDAKSJ DKSAJS KSAJSDKAJSKDJAKS DJAKDJKDJK AJSKD JAKSDJAKSJ KAJKDAJSKDAJSK DAJSKDJAKJSD KAJSKDJAKS JAKJ KJASKDJ KASJDK JAK DJKJ KJAK JAKSJDKAJSDJAKSDJHASHD JAGHSGDASTDGASDTYAGS ATFDUYTDF UASSFDU YASF UASDTASFDYU ASDF TASYD UASTD YATFSD UASDT FASUYDTSAFDU YTASDFUSY DTSF UTSDF USATD FSAUD TSFUDY TSAUDTSDY TSFYD FSYTA DFYTF YSFA YDTAFY TSFDY ', '8e3eeb37b39bb10e37ad0c082a8779cd.png', 4, 9000, NULL),
-(195, 'testando git', 2, 'asd', '9db360263cd94fe6e7367f9a4bef7d25.jpg', 4, 123, NULL);
+(195, 'testando git', 2, 'asd', '9db360263cd94fe6e7367f9a4bef7d25.jpg', 4, 123, NULL),
+(204, 'Programação em REACT, JQUERY e NodeJS', 14, 'vou fazer tudo isso ai que eu escrevi no titulo kkkkkkkkkkkk', '5f0196632ba1cd3e5389b208ead779b4.jpg', 4, 3200, ''),
+(205, 'Desenvolvimento de website com Mysql, PHP e Javascript', 30, 'BMTH should be a case study. They managed to change their genres on each album and now, they find out a way to combine them all together, pleasing both new and old fans. Damn, you guys really did it. Dissapointed to not see a single comment mention the fact that former Doom and Doom Eternal composer Mick Gordon helped produce this whole album and you can totally hear the influence from his work on Doom! I love it, and need more. Mick made a good move leaving Bethesda!\r\n', 'c1610424e26f7f8b8f78bf48b43a688c.gif', 4, 1250, '');
 
 -- --------------------------------------------------------
 
@@ -338,12 +397,15 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nome`, `cpf`, `senha`, `email`, `tipo`, `img_user`, `data`) VALUES
 (1, 'Victor', '000000000', 'teste1', 'joca11victor@gmail.com', 1, '5ca059665815f02ac4f13e1ade100939', NULL),
 (2, 'Raphael', '69420', '080904', 'raphael.feitosa11@gmail.com', 1, '4714f917772aa37278533606aae32433.jpg', NULL),
-(3, 'Kayke', '11111111111', 'teste1', 'kaykebiscegli2005@gmail.com', 1, 'd2d10d32ad083f26e04eb0ea81fa3523.png', NULL),
 (5, 'Feitosa', '2', '1234', 'feitosa@gmail.com', 2, '', NULL),
-(8, 'Raphael Tesste', '31', '123', 'kk@hotmail.com', 1, 'f64b290ab69f6724f722f13b8d8cee20', NULL),
 (11, 'Kekinho do /b/', '4321', '123', '123@gmail.com', 1, '03f939be65c2507760ac8e69b4643c11.png', NULL),
 (13, 'Mc Poze do Rodo!', '123123', '123', 'eu@gmail.com', 1, '8ab830802e3bb19a83b38d3d88b7f8d7.png', '2021-08-13 18:36:36'),
-(14, 'Jubiscleidson', '123', '123', 'trollface@gmail.com', 1, 'c5c9caecdff44c776af82dfd44ef2bc9.jpg', '2021-08-25 19:37:53');
+(14, 'Jubiscleidson Juninho', '123', '123', 'trollface@gmail.com', 1, '70ecf3e957abb97d7ff34c1cc9a57ff6.jpg', '2021-08-25 19:37:53'),
+(27, 'Lança Perfume de Andrade', '123', '123', 'Lanca@gmail.com', 1, '2b56d9b56feda744087e26542a1f7f4d.jpg', '2021-09-29 22:08:15'),
+(28, 'Louquinho Esquizofrenico da Silva', '123', '123', 'louco@kek.com', 1, '77136329d185ad4e6ef7540ebed7e76d.gif', '2021-09-30 19:53:38'),
+(29, 'Cobaia de Testes', '123', '123', 'cobaia@google.com', 1, 'a313416e1796688f423e27e9c63b9ab8.bmp', '2021-10-01 16:54:07'),
+(30, 'Pegavento YLiga Ascoisa', '123', '123', 'pegavento@gmail.com', 1, '6248aa09e047d5fe5448760f3be97dc9.jpg', '2021-10-02 16:10:51'),
+(32, 'Anão do /b/', '123', '123', 'kekinho@based.com', 1, '8e8ca2674a27a41252457f9082498939.jpg', '2021-10-06 21:16:56');
 
 --
 -- Índices para tabelas despejadas
@@ -377,6 +439,15 @@ ALTER TABLE `encontro`
   ADD PRIMARY KEY (`id_encontro`),
   ADD KEY `id_user_encontro_fk` (`cliente`),
   ADD KEY `id_servico_encontro_fk` (`servico`);
+
+--
+-- Índices para tabela `notificacao`
+--
+ALTER TABLE `notificacao`
+  ADD PRIMARY KEY (`id_notf`),
+  ADD KEY `fk_servico_autor` (`servico_notf`),
+  ADD KEY `fk_user` (`user_notf`),
+  ADD KEY `fk_servico_id` (`servico_id_notf`);
 
 --
 -- Índices para tabela `preco`
@@ -429,13 +500,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de tabela `classificacao`
 --
 ALTER TABLE `classificacao`
-  MODIFY `id_classificacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `id_classificacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 
 --
 -- AUTO_INCREMENT de tabela `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_coment` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_coment` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de tabela `encontro`
@@ -444,16 +515,22 @@ ALTER TABLE `encontro`
   MODIFY `id_encontro` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `notificacao`
+--
+ALTER TABLE `notificacao`
+  MODIFY `id_notf` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
 -- AUTO_INCREMENT de tabela `preco`
 --
 ALTER TABLE `preco`
-  MODIFY `id_preco` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_preco` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT de tabela `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `id_servico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `id_servico` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- AUTO_INCREMENT de tabela `sub_categoria`
@@ -471,7 +548,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restrições para despejos de tabelas
@@ -496,6 +573,14 @@ ALTER TABLE `comentarios`
 ALTER TABLE `encontro`
   ADD CONSTRAINT `id_servico_encontro_fk` FOREIGN KEY (`servico`) REFERENCES `servicos` (`id_servico`),
   ADD CONSTRAINT `id_user_encontro_fk` FOREIGN KEY (`cliente`) REFERENCES `user` (`id_user`);
+
+--
+-- Limitadores para a tabela `notificacao`
+--
+ALTER TABLE `notificacao`
+  ADD CONSTRAINT `fk_servico_autor` FOREIGN KEY (`servico_notf`) REFERENCES `user` (`id_user`),
+  ADD CONSTRAINT `fk_servico_id` FOREIGN KEY (`servico_id_notf`) REFERENCES `servicos` (`id_servico`),
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_notf`) REFERENCES `user` (`id_user`);
 
 --
 -- Limitadores para a tabela `preco`
